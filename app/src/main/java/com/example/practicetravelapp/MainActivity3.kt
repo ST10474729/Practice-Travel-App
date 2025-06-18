@@ -13,11 +13,11 @@ import androidx.core.view.WindowInsetsCompat
 class MainActivity3 : AppCompatActivity() {
 
             //Declaring the screen elements
-            private lateinit var txtShowsItems: TextView
-            private lateinit var txtItemsQuantity: TextView
-            private lateinit var btnMainMenu: Button
-            private lateinit var btnShowsItems: Button
-            private lateinit var btnItemsQuantity: Button
+            private lateinit var txtShowsItems: TextView // shows the full packing list
+            private lateinit var txtItemsQuantity: TextView // shows filtered items (greater than / less than 2)
+            private lateinit var btnMainMenu: Button // Button to go back to previous screen
+            private lateinit var btnShowsItems: Button // Button to show the full packing list
+            private lateinit var btnItemsQuantity: Button // Button to show items with a quantity of 2 or more
 
 
             @SuppressLint("MissingInflatedId")
@@ -32,6 +32,7 @@ class MainActivity3 : AppCompatActivity() {
                 btnMainMenu = findViewById(R.id.btnMainMenu)
                 btnShowsItems = findViewById(R.id.btnShowItems)
                 btnItemsQuantity = findViewById(R.id.btnItemsQuantity)
+                setContentView(R.layout.activity_main3)
 
                 //Recieve the packing list passed from the other screen
                 val items = intent.getStringArrayListExtra("items") ?: arrayListOf()
@@ -46,7 +47,7 @@ class MainActivity3 : AppCompatActivity() {
                         "${items[it]} (${categories[it]}) - ${quantities[it]}: ${comments[it]}"
                     }
                     //Display a message if the list is empty
-                    btnShowsItems.text = list.ifBlank { "No items added!" }
+                    txtShowsItems.text = list.ifBlank { "No items added!" }
                 }
 
                 //When the user clicks the filter button, show items with the quantity 2 or more
@@ -58,13 +59,14 @@ class MainActivity3 : AppCompatActivity() {
                             "${items[it]} (Qty: ${quantities[it]})"
                         }
                     //Show filtered list or display a message if no items match
-                    btnItemsQuantity.text = filtered.ifBlank { "No items with the quantity 2 or more" }
+                    txtItemsQuantity.text = filtered.ifBlank { "No items with the quantity 2 or more" }
                 }
 
                 //When the user clicks the back button return to the main menu
                 findViewById<Button>(R.id.btnMainMenu).setOnClickListener {
                     val intent = Intent(this, MainActivity2::class.java)
                     startActivity(intent)
+                    finish() //Close this screen and go back
                 }
 
         }

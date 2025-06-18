@@ -19,20 +19,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.071" />
 
-    <EditText
-        android:id="@+id/txtShowItems"
-        android:layout_width="286dp"
-        android:layout_height="60dp"
-        android:ems="10"
-        android:inputType="text"
-        android:text="All items will appear here"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.204" />
-
     <Button
         android:id="@+id/btnItemsQuantity"
         android:layout_width="244dp"
@@ -45,19 +31,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.336" />
 
-    <EditText
-        android:id="@+id/txtItemsQuantity"
-        android:layout_width="315dp"
-        android:layout_height="64dp"
-        android:ems="10"
-        android:inputType="text"
-        android:text="Filtered items will appear here"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.463" />
-
     <Button
         android:id="@+id/btnMainMenu"
         android:layout_width="287dp"
@@ -69,4 +42,28 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.619" />
+
+    <TextView
+        android:id="@+id/txtShowItems"
+        android:layout_width="255dp"
+        android:layout_height="103dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.602"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.181" />
+
+    <TextView
+        android:id="@+id/txtItemsQuantity"
+        android:layout_width="250dp"
+        android:layout_height="96dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.515"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.474" />
 </androidx.constraintlayout.widget.ConstraintLayout>

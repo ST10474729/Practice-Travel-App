@@ -28,17 +28,33 @@ class MainActivity2 : AppCompatActivity() {
                 setContentView(R.layout.activity_main2)
 
                 // Linking UI elements
+                // Input field for the items name (e.g toothbrush)
                 val itemInput = findViewById<EditText>(R.id.inputItem)
+
+                // Input field for category (e.g.toiletries)
                 val categoryInput = findViewById<EditText>(R.id.categoryInput)
+
+                // Input field for how many of that item
                 val quantityInput = findViewById<EditText>(R.id.inputQuantity)
+
+                // Optional Comment (e,g "Use for hotel only)
                 val commentsInput = findViewById<EditText>(R.id.inputComments)
 
+                // Button to add items to list
                 val addBtn = findViewById<Button>(R.id.btnAdd)
+
+                // Button to view items on list
                 val viewBtn = findViewById<Button>(R.id.btnView)
+
+                //Button to completely exit the app
                 val exitBtn = findViewById<Button>(R.id.btnExit)
 
-                // "Add" button click listener
+
+
+                // When the user clicks the "Input Item" button, this block of code will
                 addBtn.setOnClickListener {
+
+                    // Store the user input from each text box into a temporary variable
                     val item = itemInput.text.toString()
                     val category = categoryInput.text.toString()
                     val quantityText = quantityInput.text.toString()
@@ -46,13 +62,18 @@ class MainActivity2 : AppCompatActivity() {
 
                     // Validate input fields
                     if (item.isBlank() || category.isBlank() || quantityText.isBlank() || comment.isBlank()) {
-                        Toast.makeText(this, "Please fill all required fields", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "Please fill all required fields", Toast.LENGTH_SHORT)
+                            .show()
                         return@setOnClickListener
                     }
 
                     val quantity = quantityText.toIntOrNull()
                     if (quantity == null || quantity <= 0) {
-                        Toast.makeText(this, "Quantity must be a positive number!", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(
+                            this,
+                            "Quantity must be a positive number!",
+                            Toast.LENGTH_SHORT
+                        ).show()
                         return@setOnClickListener
                     }
 
@@ -69,7 +90,9 @@ class MainActivity2 : AppCompatActivity() {
                     categoryInput.text.clear()
                     quantityInput.text.clear()
                     commentsInput.text.clear()
+
                 }
+
 
                 // "Display" button click listener
                 viewBtn.setOnClickListener {
@@ -78,11 +101,12 @@ class MainActivity2 : AppCompatActivity() {
                     // Attach all lists as extras
                     intent.putStringArrayListExtra("items", items)
                     intent.putStringArrayListExtra("categories", categories)
-                    intent.putIntegerArrayListExtra("quantity", quantities)
+                    intent.putIntegerArrayListExtra("quantities", quantities)
                     intent.putStringArrayListExtra("comments", comments)
 
                     // Start the display activity
                     startActivity(intent)
+
                 }
 
                 // "Exit" button click listener
